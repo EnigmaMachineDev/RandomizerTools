@@ -1,0 +1,278 @@
+{
+  "classList": [
+    "Tactical",
+    "Assault",
+    "Vanguard",
+    "Bulwark",
+    "Sniper",
+    "Heavy",
+    "Techmarine"
+  ],
+  "classes": {
+    "Tactical": {
+      "primaries": [
+        "Auto Bolt Rifle",
+        "Bolt Rifle",
+        "Heavy Bolt Rifle",
+        "Stalker Bolt Rifle",
+        "Bolt Carbine",
+        "Plasma Incinerator",
+        "Melta Rifle",
+        "Pyreblaster"
+      ],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Plasma Pistol"
+      ],
+      "melee": [
+        "Chainsword",
+        "Combat Knife"
+      ]
+    },
+    "Assault": {
+      "primaries": [],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Plasma Pistol",
+        "Inferno Pistol",
+        "Neo-Volkite Pistol",
+        "Bolt Carbine One-Handed"
+      ],
+      "melee": [
+        "Chainsword",
+        "Thunder Hammer",
+        "Power Fist",
+        "Power Sword",
+        "Power Axe"
+      ]
+    },
+    "Vanguard": {
+      "primaries": [
+        "Instigator Bolt Carbine",
+        "Bolt Carbine",
+        "Occulus Bolt Carbine",
+        "Melta Rifle"
+      ],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Inferno Pistol",
+        "Neo-Volkite Pistol"
+      ],
+      "melee": [
+        "Chainsword",
+        "Combat Knife",
+        "Power Axe"
+      ]
+    },
+    "Bulwark": {
+      "primaries": [],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Plasma Pistol",
+        "Neo-Volkite Pistol",
+        "Bolt Carbine One-Handed"
+      ],
+      "melee": [
+        "Chainsword",
+        "Thunder Hammer",
+        "Power Fist",
+        "Power Sword",
+        "Power Axe"
+      ]
+    },
+    "Sniper": {
+      "primaries": [
+        "Stalker Bolt Rifle",
+        "Instigator Bolt Carbine",
+        "Bolt Sniper Rifle",
+        "Bolt Carbine",
+        "Las Fusil"
+      ],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Inferno Pistol"
+      ],
+      "melee": [
+        "Combat Knife"
+      ]
+    },
+    "Heavy": {
+      "primaries": [
+        "Heavy Bolt Rifle",
+        "Heavy Bolter",
+        "Heavy Plasma Incinerator",
+        "Multi-Melta",
+        "Pyrecannon"
+      ],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Plasma Pistol",
+        "Inferno Pistol"
+      ],
+      "melee": []
+    },
+    "Techmarine": {
+      "primaries": [
+        "Auto Bolt Rifle",
+        "Bolt Rifle",
+        "Heavy Bolt Rifle",
+        "Plasma Incinerator",
+        "Occulus Bolt Carbine"
+      ],
+      "secondaries": [
+        "Bolt Pistol",
+        "Heavy Bolt Pistol",
+        "Plasma Pistol",
+        "Inferno Pistol",
+        "Neo-Volkite Pistol"
+      ],
+      "melee": [
+        "Combat Knife",
+        "Power Sword",
+        "Power Axe",
+        "Omnissiah Axe"
+      ]
+    }
+  },
+  "allPrimaries": [
+    "Auto Bolt Rifle",
+    "Bolt Rifle",
+    "Heavy Bolt Rifle",
+    "Stalker Bolt Rifle",
+    "Bolt Carbine",
+    "Plasma Incinerator",
+    "Melta Rifle",
+    "Pyreblaster",
+    "Instigator Bolt Carbine",
+    "Occulus Bolt Carbine",
+    "Bolt Sniper Rifle",
+    "Las Fusil",
+    "Heavy Bolter",
+    "Heavy Plasma Incinerator",
+    "Multi-Melta",
+    "Pyrecannon"
+  ],
+  "allSecondaries": [
+    "Bolt Pistol",
+    "Heavy Bolt Pistol",
+    "Plasma Pistol",
+    "Inferno Pistol",
+    "Neo-Volkite Pistol",
+    "Bolt Carbine One-Handed"
+  ],
+  "allMelee": [
+    "Chainsword",
+    "Combat Knife",
+    "Thunder Hammer",
+    "Power Fist",
+    "Power Sword",
+    "Power Axe",
+    "Omnissiah Axe"
+  ],
+  "chapters": [
+    {"name": "Ultramarines", "dlc": false},
+    {"name": "Dark Angels", "dlc": false},
+    {"name": "Blood Angels", "dlc": false},
+    {"name": "Imperial Fists", "dlc": false},
+    {"name": "Salamanders", "dlc": false},
+    {"name": "Raven Guard", "dlc": false},
+    {"name": "White Scars", "dlc": false},
+    {"name": "Blood Ravens", "dlc": false},
+    {"name": "Iron Hands", "dlc": false},
+    {"name": "Space Wolves", "dlc": false},
+    {"name": "Black Templars", "dlc": false},
+    {"name": "Carcharodons", "dlc": false},
+    {"name": "Taurans", "dlc": false},
+    {"name": "Red Scorpions", "dlc": false},
+    {"name": "Omega Marines", "dlc": false},
+    {"name": "Storm Giants", "dlc": false},
+    {"name": "Minotaurs", "dlc": false},
+    {"name": "Exorcists", "dlc": false},
+    {"name": "Doom Eagles", "dlc": true},
+    {"name": "Genesis Chapter", "dlc": true},
+    {"name": "Libators", "dlc": true},
+    {"name": "Novamarines", "dlc": true},
+    {"name": "Praetors of Orpheus", "dlc": true},
+    {"name": "Scythes of the Emperor", "dlc": true},
+    {"name": "Iron Hounds", "dlc": true},
+    {"name": "Tome Keepers", "dlc": true},
+    {"name": "Void Tridents", "dlc": true},
+    {"name": "Castellans of the Rift", "dlc": true},
+    {"name": "Brazen Consuls", "dlc": true},
+    {"name": "Hawk Lords", "dlc": true},
+    {"name": "Angels of Absolution", "dlc": true},
+    {"name": "Angels of Redemption", "dlc": true},
+    {"name": "Angels of Vengeance", "dlc": true},
+    {"name": "The Unnamed", "dlc": true},
+    {"name": "Blades of Vengeance", "dlc": true},
+    {"name": "Cowled Wardens", "dlc": true},
+    {"name": "Bringers of Judgement", "dlc": true},
+    {"name": "Angels of Defiance", "dlc": true},
+    {"name": "Black Guard", "dlc": true},
+    {"name": "Revilers", "dlc": true},
+    {"name": "Raptors", "dlc": true},
+    {"name": "Death Specters", "dlc": true},
+    {"name": "Rift Stalkers", "dlc": true},
+    {"name": "Necropolis Hawks", "dlc": true},
+    {"name": "Iron Ravens", "dlc": true},
+    {"name": "Knights of the Raven", "dlc": true},
+    {"name": "The Blackmanes", "dlc": true},
+    {"name": "The Deathwolves", "dlc": true},
+    {"name": "The Ironwolves", "dlc": true},
+    {"name": "The Grimbloods", "dlc": true},
+    {"name": "The Seawolves", "dlc": true},
+    {"name": "The Sons of Morkai", "dlc": true},
+    {"name": "The Bloodmaws", "dlc": true},
+    {"name": "The Red Moons", "dlc": true},
+    {"name": "The Drakeslayers", "dlc": true},
+    {"name": "The Firehowlers", "dlc": true},
+    {"name": "The Stormwolves", "dlc": true},
+    {"name": "Champions of Fenris", "dlc": true},
+    {"name": "Angels Sanguine", "dlc": true},
+    {"name": "Flesh Tearers", "dlc": true},
+    {"name": "Angels Penitent", "dlc": true},
+    {"name": "Lamenters", "dlc": true},
+    {"name": "Blood Scythes", "dlc": true},
+    {"name": "Atlantian Spears", "dlc": true},
+    {"name": "Blood Dragons", "dlc": true},
+    {"name": "Flesh Eaters", "dlc": true},
+    {"name": "Destroyers", "dlc": true},
+    {"name": "Marauders", "dlc": true},
+    {"name": "Storm Lords", "dlc": true},
+    {"name": "Rampagers", "dlc": true},
+    {"name": "Mantis Warriors", "dlc": true},
+    {"name": "Storm Reapers", "dlc": true},
+    {"name": "Solar Hawks", "dlc": true},
+    {"name": "Dark Hunters", "dlc": true},
+    {"name": "Black Vipers", "dlc": true},
+    {"name": "Covenant of Fire", "dlc": true},
+    {"name": "Dragonspears", "dlc": true},
+    {"name": "Dark Krakens", "dlc": true},
+    {"name": "Brazen Claws", "dlc": true},
+    {"name": "Red Talons", "dlc": true},
+    {"name": "Sons of Medusa", "dlc": true},
+    {"name": "Iron Lords", "dlc": true}
+  ],
+  "missions": [
+    "Inferno",
+    "Decapitation",
+    "Vox Liberatis",
+    "Reliquary",
+    "Fall of Atreus",
+    "Ballistic Engine",
+    "Termination",
+    "Obelisk",
+    "Exfiltration",
+    "Siege",
+    "Vortex",
+    "Reclamation",
+    "Disruption",
+    "Purgation"
+  ]
+}

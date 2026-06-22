@@ -1,0 +1,204 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const classNameEl = document.getElementById('class-name');
+    const abilitiesListEl = document.getElementById('abilities-list');
+    const weaponTypeEl = document.getElementById('weapon-type');
+
+    const generateLoadoutBtn = document.getElementById('generate-loadout');
+    const rerollClassBtn = document.getElementById('reroll-class');
+    const rerollAbilitiesBtn = document.getElementById('reroll-abilities');
+    const rerollWeaponBtn = document.getElementById('reroll-weapon');
+
+    let data = {};
+    const STORAGE_KEY = 'grimDawnOptions';
+    let options = {};
+    let characterData = null;
+    let selectedClass = null;
+    let selectedAbilities = [];
+    let compatibleWeapons = [];
+
+    async function loadData() {
+        try {
+            const response = await fetch('randomizer.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            characterData = await response.json();
+            data = characterData;
+            loadOptions();
+            generateCharacter();
+        } catch (error) {
+            loadOptions();
+            randomizeAll();
+            console.error("Failed to load character data:", error);
+        }
+    }
+
+    function getRandomValue(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function loadOptions() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            try {
+                options = JSON.parse(saved);
+            } catch (e) { }
+        }
+    }
+
+    function isEnabled(category, name) {
+        if (!options[category]) return true;
+        if (!options[category].hasOwnProperty(name)) return true;
+        return options[category][name];
+    }
+
+    function getEnabledItems(category) {
+        if (!data[category]) return [];
+        return data[category].filter(item => {
+            const itemName = item.className || item.name || item.masteryName;
+            return isEnabled(category, itemName);
+        });
+    }
+
+    function getRandomElement(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateClass() {
+        const { classes } = characterData;
+        const enabledClasses = getEnabledItems('classes');
+        if (enabledClasses.length === 0) {
+            classNameEl.textContent = 'No classes selected';
+            abilitiesListEl.innerHTML = '<li>None</li>';
+            weaponTypeEl.textContent = 'None';
+            return;
+        }
+        selectedClass = getRandomElement(enabledClasses);
+        classNameEl.textContent = `${selectedClass.className} (${selectedClass.masteries.join(', ')})`;
+    }
+
+    function generateAbilitiesAndWeapon() {
+        const { abilities: masteryAbilities } = characterData;
+        
+        // Get all abilities for the selected masteries
+        let allAbilities = masteryAbilities
+            .filter(m => selectedClass.masteries.includes(m.masteryName))
+            .flatMap(m => m.abilityList);
+        
+        // Filter by enabled abilities
+        let potentialAbilities = allAbilities.filter(ability => {
+            // Find which mastery this ability belongs to
+            const mastery = masteryAbilities.find(m => 
+                m.abilityList.some(a => a.name === ability.name)
+            );
+            if (!mastery) return true;
+            return isEnabled(mastery.masteryName, ability.name);
+        });
+
+        if (potentialAbilities.length === 0) {
+            selectedAbilities = [];
+            compatibleWeapons = [];
+            displayAbilities();
+            generateWeapon();
+            return;
+        }
+
+        const focusAbilityCount = Math.floor(Math.random() * 3) + 1;
+        selectedAbilities = [];
+        compatibleWeapons = [];
+
+        for (let i = 0; i < focusAbilityCount; i++) {
+            if (potentialAbilities.length === 0) break;
+
+            const abilityIndex = Math.floor(Math.random() * potentialAbilities.length);
+            const selectedAbility = potentialAbilities[abilityIndex];
+            selectedAbilities.push(selectedAbility);
+
+            potentialAbilities.splice(abilityIndex, 1);
+
+            if (i === 0) {
+                compatibleWeapons = [...selectedAbility.compatibleWeapons];
+            } else {
+                compatibleWeapons = compatibleWeapons.filter(weapon => selectedAbility.compatibleWeapons.includes(weapon));
+            }
+
+            potentialAbilities = potentialAbilities.filter(ability =>
+                ability.compatibleWeapons.some(weapon => compatibleWeapons.includes(weapon))
+            );
+        }
+
+        displayAbilities();
+        generateWeapon();
+    }
+
+    function generateWeapon() {
+        const selectedWeapon = compatibleWeapons.length > 0
+            ? getRandomElement(compatibleWeapons)
+            : "Any";
+        weaponTypeEl.textContent = selectedWeapon;
+    }
+
+    function generateCharacter() {
+        generateClass();
+        generateAbilitiesAndWeapon();
+    }
+
+    function displayAbilities() {
+        abilitiesListEl.innerHTML = '';
+        if (selectedAbilities.length > 0) {
+            selectedAbilities.forEach(ability => {
+                const li = document.createElement('li');
+                li.textContent = ability.name;
+                abilitiesListEl.appendChild(li);
+            });
+        } else {
+            const li = document.createElement('li');
+            li.textContent = 'None';
+            abilitiesListEl.appendChild(li);
+        }
+    }
+
+    generateLoadoutBtn.addEventListener('click', generateCharacter);
+    rerollClassBtn.addEventListener('click', () => {
+        generateClass();
+        generateAbilitiesAndWeapon();
+    });
+    rerollAbilitiesBtn.addEventListener('click', generateAbilitiesAndWeapon);
+    rerollWeaponBtn.addEventListener('click', generateWeapon);
+
+    loadData();
+
+    function copyResults() {
+        const sections = document.querySelectorAll('.container > .section');
+        const lines = [];
+        sections.forEach(section => {
+            if (section.style.display === 'none') return;
+            const header = section.querySelector('.section-header h2');
+            if (!header) return;
+            const label = header.textContent.trim();
+            const itemContainer = section.querySelector('.item-container');
+            if (!itemContainer) return;
+            // Check for list items
+            const listItems = itemContainer.querySelectorAll('li');
+            let value = '';
+            if (listItems.length > 0) {
+                const items = Array.from(listItems).map(li => li.textContent.trim());
+                value = items.join(', ');
+            } else {
+                value = itemContainer.textContent.trim();
+            }
+            if (value) {
+                lines.push(label + ': ' + value);
+            }
+        });
+        const text = lines.join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('copy-results');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = originalText; }, 2000);
+        });
+    }
+
+    document.getElementById('copy-results').addEventListener('click', copyResults);
+});

@@ -1,0 +1,43 @@
+{
+  "bases": [
+    "Sushi Rice",
+    "Brown Rice",
+    "Spring Mix"
+  ],
+  "proteins": [
+    "Tuna*",
+    "Spicy Tuna*",
+    "Salmon*",
+    "Spicy Salmon*",
+    "Yellowtail*",
+    "Spicy Yellowtail*",
+    "Crabmeat",
+    "Spicy Crabmeat",
+    "Tofu"
+  ],
+  "toppings": [
+    "Jalapeño",
+    "Edamame",
+    "Carrot",
+    "Pickled Ginger",
+    "Cucumber",
+    "Corn",
+    "Oshinko Radish",
+    "Cilantro",
+    "Steamed Broccoli",
+    "Avocado (+$1)",
+    "Spicy Cucumber (+$1)",
+    "Seaweed Salad (+$1)"
+  ],
+  "sauces": [
+    "Teriyaki Sauce",
+    "Wasabi Sauce",
+    "Sriracha",
+    "Gochujang",
+    "Poke Sauce",
+    "Shrimp Sauce",
+    "Ponzu Sauce",
+    "Spicy Mayo",
+    "Eel Sauce"
+  ]
+}

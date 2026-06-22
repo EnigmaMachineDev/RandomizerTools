@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PM3ZXMM8J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3PM3ZXMM8J');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulframe Weapon Reference</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../templates/nav-styles.css">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn46yPC90ZXh0Pjwvc3ZnPg==" type="image/svg+xml">
+    <script src="../templates/nav-loader.js"></script>
+    <script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZToyZjkwZTY3Ni00MjRmLTQyNzEtOGViOS01NGIzYjY3YzFjYTM=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <a href="../index.html" class="back-button">← Back to Hub</a>
+        <div class="container">
+            <h1>Soulframe Weapon Reference</h1>
+            
+            <!-- Search and Filter Controls -->
+            <div class="controls-section">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search weapons...">
+                </div>
+                
+                <div class="filter-container">
+                    <select id="slot-filter">
+                        <option value="">All Slots</option>
+                        <option value="Weapon">Weapon</option>
+                        <option value="Sidearm">Sidearm</option>
+                    </select>
+                    
+                    <select id="art-filter">
+                        <option value="">All Arts</option>
+                    </select>
+                    
+                    <select id="damage-filter">
+                        <option value="">All Damage Types</option>
+                    </select>
+                    
+                    <select id="virtue-filter">
+                        <option value="">All Virtues</option>
+                        <option value="Courage">Courage</option>
+                        <option value="Grace">Grace</option>
+                        <option value="Spirit">Spirit</option>
+                    </select>
+                    
+                    <select id="rarity-filter">
+                        <option value="">All Rarities</option>
+                        <option value="Common">Common</option>
+                        <option value="Uncommon">Uncommon</option>
+                        <option value="Rare">Rare</option>
+                    </select>
+                    
+                    <button id="clear-filters" class="clear-btn">Clear Filters</button>
+                </div>
+            </div>
+
+            <!-- Stats Display -->
+            <div class="stats-display">
+                Showing <span id="filtered-count">0</span> of <span id="total-count">0</span> weapons
+            </div>
+
+            <!-- Weapons Table -->
+            <div class="table-container">
+                <table id="weapons-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-column="name">Weapon Name <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="slot">Slot <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="art">Art <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="damageType">Damage Type <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="virtues">Virtues <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="rarity">Rarity <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="attunement">Attunement <span class="sort-indicator"></span></th>
+                            <th class="sortable numeric" data-column="virtueAttuneCap">Virtue Attunement Damage Cap <span class="sort-indicator"></span></th>
+                            <th class="sortable numeric" data-column="reqVirtue">Required Virtue <span class="sort-indicator"></span></th>
+                            <th class="sortable numeric" data-column="baseAttack">Base Attack <span class="sort-indicator"></span></th>
+                            <th class="sortable numeric" data-column="maxAttack">Max Attack <span class="sort-indicator"></span></th>
+                            <th class="sortable numeric" data-column="baseStagger">Base Stagger <span class="sort-indicator"></span></th>
+                            <th class="sortable numeric" data-column="maxStagger">Max Stagger <span class="sort-indicator"></span></th>
+                            <th class="sortable" data-column="smite">Smite Chance <span class="sort-indicator"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="weapons-tbody">
+                        <!-- Weapons will be loaded here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Weapon Detail Modal -->
+            <div id="weapon-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="modal-body">
+                        <!-- Weapon details will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container about-section">
+        <h2 class="category-title">About This Tool</h2>
+        <div class="about-content">
+            <p>Welcome to the Soulframe Weapon Reference, your comprehensive database for all weapons in Soulframe! This tool provides a sortable and searchable table of all available weapons with their complete statistics and attributes.</p>
+            <p>Use the search bar to find specific weapons by name, or utilize the filter dropdowns to narrow down weapons by slot, art type, damage type, virtue, or rarity. Click on any column header to sort the table by that attribute.</p>
+            <h3>How to Use the Reference</h3>
+            <p>Click on any weapon name to view its full description and detailed statistics including damage values at different levels, special attacks, and virtue attunement caps. The table displays key statistics for quick comparison between weapons.</p>
+            <p>The filters can be combined to find exactly the weapon type you're looking for - for example, all Rare weapons that use Grace virtue, or all Sidearm weapons with Sharp damage.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+        <div class="coffee-link">
+            <a href="https://buymeacoffee.com/EnigmaMachineDev" target="_blank" rel="noopener noreferrer">
+                ☕ Buy me a coffee
+            </a>
+        </div>
+    </footer>
+    <script src="weaponData.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Redirect popup to soulframetools.com -->
+    <div id="sf-redirect-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;align-items:center;justify-content:center;">
+      <div style="background:#0f1a0f;border:1px solid #1e3a1e;border-radius:12px;padding:28px;max-width:420px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+        <h2 style="color:#6abf6a;font-size:20px;margin:0 0 12px;">This tool has moved!</h2>
+        <p style="color:#c8e6c8;font-size:14px;margin:0 0 20px;line-height:1.5;">The Soulframe Weapon Reference is now part of <strong style="color:#6abf6a;">Soulframe Tools</strong>, along with a loadout randomizer, armour reference, progress tracker, and build planner.</p>
+        <a href="https://soulframetools.com/weapons" style="display:inline-block;background:#2d5a2d;color:#0a0f0a;font-weight:bold;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;margin-bottom:10px;transition:background 0.2s;" onmouseover="this.style.background='#4a8c4a'" onmouseout="this.style.background='#2d5a2d'">Go to Soulframe Tools</a>
+        <br>
+        <button onclick="document.getElementById('sf-redirect-overlay').style.display='none';" style="background:none;border:1px solid #1e3a1e;color:#7a9f7a;padding:6px 16px;border-radius:6px;cursor:pointer;font-size:12px;margin-top:6px;">Stay on this page</button>
+      </div>
+    </div>
+    <script>
+      document.getElementById('sf-redirect-overlay').style.display = 'flex';
+    </script>
+</body>
+</html>

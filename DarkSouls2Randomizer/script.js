@@ -1,0 +1,293 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const weaponEl = document.getElementById('weapon');
+    const weaponLinkEl = document.getElementById('weapon-link');
+    const armorEl = document.getElementById('armor');
+    const armorLinkEl = document.getElementById('armor-link');
+    const spellsListEl = document.getElementById('spells-list');
+    const spellTypeLabelEl = document.getElementById('spell-type-label');
+    const casterWeaponEl = document.getElementById('caster-weapon');
+    const casterWeaponLinkEl = document.getElementById('caster-weapon-link');
+    const casterWeaponSectionEl = document.getElementById('caster-weapon-section');
+
+    const generateLoadoutBtn = document.getElementById('generate-loadout');
+    const rerollWeaponBtn = document.getElementById('reroll-weapon');
+    const rerollArmorBtn = document.getElementById('reroll-armor');
+    const rerollSpellsBtn = document.getElementById('reroll-spells');
+    const rerollCasterWeaponBtn = document.getElementById('reroll-caster-weapon');
+    const endingEl = document.getElementById('ending');
+    const endingLinkEl = document.getElementById('ending-link');
+    const rerollEndingBtn = document.getElementById('reroll-ending');
+
+    let weaponsData;
+    let casterWeaponsData;
+    let armorData;
+    let magicData;
+    let endingsData;
+
+    let currentSpellType = '';
+    const STORAGE_KEY = 'darkSouls2Options';
+    let options = {};
+
+    const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    function loadOptions() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            try {
+                options = JSON.parse(saved);
+            } catch (e) {}
+        }
+    }
+
+    function isEnabled(category, name) {
+        if (!options[category]) return true;
+        if (!options[category].hasOwnProperty(name)) return true;
+        return options[category][name];
+    }
+
+    function getEnabledItems(category, items) {
+        if (!items) return [];
+        return items.filter(item => isEnabled(category, item.name));
+    }
+
+    function generateWeapon() {
+        if (!weaponsData || weaponsData.length === 0) return;
+        const enabled = getEnabledItems('weapons', weaponsData);
+        if (enabled.length === 0) return;
+        const randomWeapon = getRandomElement(enabled);
+        weaponEl.textContent = randomWeapon.name;
+        weaponLinkEl.href = randomWeapon.url;
+    }
+
+    function generateArmor() {
+        if (!armorData) return;
+        const allArmor = [
+            ...getEnabledItems('light_sets', armorData.light_sets),
+            ...getEnabledItems('medium_sets', armorData.medium_sets),
+            ...getEnabledItems('heavy_sets', armorData.heavy_sets)
+        ];
+        if (allArmor.length === 0) return;
+        
+        const randomArmorSet = getRandomElement(allArmor);
+        armorEl.textContent = randomArmorSet.name;
+        armorLinkEl.href = randomArmorSet.url;
+    }
+
+    function generateSpells() {
+        if (!magicData || !casterWeaponsData) return;
+
+        // Determine which caster weapon types are available
+        const enabledCasterWeapons = getEnabledItems('caster_weapons', casterWeaponsData);
+        const availableMagicTypes = new Set();
+        enabledCasterWeapons.forEach(weapon => {
+            if (weapon.magic_type.includes('/')) {
+                weapon.magic_type.split('/').forEach(type => availableMagicTypes.add(type.trim()));
+            } else {
+                availableMagicTypes.add(weapon.magic_type);
+            }
+        });
+
+        // Determine which spell types have enabled spells AND matching caster weapons
+        const availableSpellTypes = [];
+        const enabledSorceries = getEnabledItems('sorceries', magicData.sorceries);
+        const enabledMiracles = getEnabledItems('miracles', magicData.miracles);
+        const enabledPyromancies = getEnabledItems('pyromancies', magicData.pyromancies);
+        const enabledHexes = getEnabledItems('hexes', magicData.hexes);
+
+        if (enabledSorceries.length > 0 && availableMagicTypes.has('Sorcery')) {
+            availableSpellTypes.push('Sorceries');
+        }
+        if (enabledMiracles.length > 0 && availableMagicTypes.has('Miracle')) {
+            availableSpellTypes.push('Miracles');
+        }
+        if (enabledPyromancies.length > 0 && availableMagicTypes.has('Pyromancy')) {
+            availableSpellTypes.push('Pyromancies');
+        }
+        if (enabledHexes.length > 0 && availableMagicTypes.has('Hex')) {
+            availableSpellTypes.push('Hexes');
+        }
+
+        // Always include "None" as an option
+        availableSpellTypes.push('None');
+
+        const spellRoll = getRandomElement(availableSpellTypes);
+        let selectedSpells = [];
+
+        if (spellRoll === 'Sorceries') {
+            currentSpellType = '(Sorceries)';
+            const numberOfSpells = Math.min(Math.floor(Math.random() * 3) + 1, enabledSorceries.length);
+            const spellsCopy = [...enabledSorceries];
+            for (let i = 0; i < numberOfSpells; i++) {
+                if (spellsCopy.length === 0) break;
+                const randomIndex = Math.floor(Math.random() * spellsCopy.length);
+                selectedSpells.push(spellsCopy.splice(randomIndex, 1)[0]);
+            }
+        } else if (spellRoll === 'Miracles') {
+            currentSpellType = '(Miracles)';
+            const numberOfSpells = Math.min(Math.floor(Math.random() * 3) + 1, enabledMiracles.length);
+            const spellsCopy = [...enabledMiracles];
+            for (let i = 0; i < numberOfSpells; i++) {
+                if (spellsCopy.length === 0) break;
+                const randomIndex = Math.floor(Math.random() * spellsCopy.length);
+                selectedSpells.push(spellsCopy.splice(randomIndex, 1)[0]);
+            }
+        } else if (spellRoll === 'Pyromancies') {
+            currentSpellType = '(Pyromancies)';
+            const numberOfSpells = Math.min(Math.floor(Math.random() * 3) + 1, enabledPyromancies.length);
+            const spellsCopy = [...enabledPyromancies];
+            for (let i = 0; i < numberOfSpells; i++) {
+                if (spellsCopy.length === 0) break;
+                const randomIndex = Math.floor(Math.random() * spellsCopy.length);
+                selectedSpells.push(spellsCopy.splice(randomIndex, 1)[0]);
+            }
+        } else if (spellRoll === 'Hexes') {
+            currentSpellType = '(Hexes)';
+            const numberOfSpells = Math.min(Math.floor(Math.random() * 3) + 1, enabledHexes.length);
+            const spellsCopy = [...enabledHexes];
+            for (let i = 0; i < numberOfSpells; i++) {
+                if (spellsCopy.length === 0) break;
+                const randomIndex = Math.floor(Math.random() * spellsCopy.length);
+                selectedSpells.push(spellsCopy.splice(randomIndex, 1)[0]);
+            }
+        } else { // None
+            currentSpellType = '(None)';
+        }
+
+        spellsListEl.innerHTML = '';
+        if (selectedSpells.length > 0) {
+            selectedSpells.forEach(spell => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${spell.url}" target="_blank">${spell.name}</a>`;
+                spellsListEl.appendChild(li);
+            });
+        }
+
+        spellTypeLabelEl.textContent = `Spells: ${currentSpellType}`;
+        generateCasterWeapon();
+    }
+
+    function generateCasterWeapon() {
+        if (!casterWeaponsData || currentSpellType === '(None)') {
+            casterWeaponSectionEl.style.display = 'none';
+            return;
+        }
+        casterWeaponSectionEl.style.display = 'block';
+
+        let casterWeaponName = 'None';
+        let casterWeaponLink = '#';
+
+        // Get enabled caster weapons first
+        const enabledCasterWeapons = getEnabledItems('caster_weapons', casterWeaponsData);
+
+        if (currentSpellType === '(Sorceries)') {
+            const staffs = enabledCasterWeapons.filter(w => 
+                w.magic_type === 'Sorcery' || w.magic_type.includes('Sorcery')
+            );
+            if (staffs.length > 0) {
+                const randomStaff = getRandomElement(staffs);
+                casterWeaponName = randomStaff.name;
+                casterWeaponLink = randomStaff.url;
+            }
+        } else if (currentSpellType === '(Miracles)') {
+            const chimes = enabledCasterWeapons.filter(w => 
+                w.magic_type === 'Miracle' || w.magic_type.includes('Miracle')
+            );
+            if (chimes.length > 0) {
+                const randomChime = getRandomElement(chimes);
+                casterWeaponName = randomChime.name;
+                casterWeaponLink = randomChime.url;
+            }
+        } else if (currentSpellType === '(Pyromancies)') {
+            const flames = enabledCasterWeapons.filter(w => w.magic_type === 'Pyromancy');
+            if (flames.length > 0) {
+                const randomFlame = getRandomElement(flames);
+                casterWeaponName = randomFlame.name;
+                casterWeaponLink = randomFlame.url;
+            }
+        } else if (currentSpellType === '(Hexes)') {
+            // Hexes can use staffs or chimes that support hexes
+            const hexWeapons = enabledCasterWeapons.filter(w => 
+                w.magic_type.includes('Hex') || w.magic_type === 'Sorcery/Miracle/Hex'
+            );
+            if (hexWeapons.length > 0) {
+                const randomHexWeapon = getRandomElement(hexWeapons);
+                casterWeaponName = randomHexWeapon.name;
+                casterWeaponLink = randomHexWeapon.url;
+            }
+        }
+
+        casterWeaponEl.textContent = casterWeaponName;
+        casterWeaponLinkEl.href = casterWeaponLink;
+    }
+
+    function generateEnding() {
+        if (!endingsData) return;
+        const enabledEndings = getEnabledItems('endings', endingsData);
+        if (enabledEndings.length === 0) return;
+        const randomEnding = getRandomElement(enabledEndings);
+        endingEl.textContent = randomEnding.name;
+        endingLinkEl.href = randomEnding.url;
+    }
+
+    function generateAll() {
+        generateWeapon();
+        generateArmor();
+        generateSpells();
+        generateEnding();
+    }
+
+    fetch('randomizer.json')
+        .then(res => res.json())
+        .then(data => {
+            weaponsData = data.weapons;
+            casterWeaponsData = data.caster_weapons;
+            armorData = data.armor;
+            magicData = data.magic;
+            endingsData = data.endings;
+
+            loadOptions();
+            generateAll();
+
+            generateLoadoutBtn.addEventListener('click', generateAll);
+            rerollWeaponBtn.addEventListener('click', generateWeapon);
+            rerollArmorBtn.addEventListener('click', generateArmor);
+            rerollSpellsBtn.addEventListener('click', generateSpells);
+            rerollCasterWeaponBtn.addEventListener('click', generateCasterWeapon);
+            rerollEndingBtn.addEventListener('click', generateEnding);
+        })
+        .catch(error => console.error('Error loading data:', error));
+
+    function copyResults() {
+        const sections = document.querySelectorAll('.container > .section');
+        const lines = [];
+        sections.forEach(section => {
+            if (section.style.display === 'none') return;
+            const header = section.querySelector('.section-header h2');
+            if (!header) return;
+            const label = header.textContent.trim();
+            const itemContainer = section.querySelector('.item-container');
+            if (!itemContainer) return;
+            // Check for list items
+            const listItems = itemContainer.querySelectorAll('li');
+            let value = '';
+            if (listItems.length > 0) {
+                const items = Array.from(listItems).map(li => li.textContent.trim());
+                value = items.join(', ');
+            } else {
+                value = itemContainer.textContent.trim();
+            }
+            if (value) {
+                lines.push(label + ': ' + value);
+            }
+        });
+        const text = lines.join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('copy-results');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = originalText; }, 2000);
+        });
+    }
+
+    document.getElementById('copy-results').addEventListener('click', copyResults);
+});
