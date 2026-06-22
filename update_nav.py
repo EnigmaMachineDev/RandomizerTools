@@ -2,7 +2,7 @@ import os
 import re
 
 # Directory containing randomizer folders
-base_dir = r"c:\Users\William\EnigmaMachineDev\Repository\EnigmaMachineRandomizerHub"
+base_dir = r"c:\Users\William\EnigmaMachineDev\Repository\RandomizerTools"
 
 # List of randomizer folders to update
 randomizer_folders = [
