@@ -1,0 +1,10 @@
+# Netlify security headers (also honored by Cloudflare Pages).
+# Deliberately NO Content-Security-Policy here: this site loads Google Analytics
+# and Mediavine, and uses inline styles/handlers across the randomizer pages, so a
+# strict CSP would break analytics, ads, and behavior. Adding one requires per-page
+# tuning + testing. The headers below are pure hardening with no breakage risk.
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
