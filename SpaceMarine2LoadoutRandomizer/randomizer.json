@@ -27,7 +27,8 @@
       ],
       "melee": [
         "Chainsword",
-        "Combat Knife"
+        "Combat Knife",
+        "Thunder Hammer One-Handed"
       ]
     },
     "Assault": {
@@ -45,7 +46,8 @@
         "Thunder Hammer",
         "Power Fist",
         "Power Sword",
-        "Power Axe"
+        "Power Axe",
+        "Thunder Hammer One-Handed"
       ]
     },
     "Vanguard": {
@@ -81,7 +83,8 @@
         "Thunder Hammer",
         "Power Fist",
         "Power Sword",
-        "Power Axe"
+        "Power Axe",
+        "Thunder Hammer One-Handed"
       ]
     },
     "Sniper": {
@@ -136,7 +139,8 @@
         "Combat Knife",
         "Power Sword",
         "Power Axe",
-        "Omnissiah Axe"
+        "Omnissiah Axe",
+        "Thunder Hammer One-Handed"
       ]
     }
   },
@@ -173,7 +177,8 @@
     "Power Fist",
     "Power Sword",
     "Power Axe",
-    "Omnissiah Axe"
+    "Omnissiah Axe",
+    "Thunder Hammer One-Handed"
   ],
   "chapters": [
     {"name": "Ultramarines", "dlc": false},

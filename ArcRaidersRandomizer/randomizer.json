@@ -4,7 +4,9 @@
     {"name": "Buried City", "link": "https://arcraiders.wiki/wiki/Buried_City"},
     {"name": "Spaceport", "link": "https://arcraiders.wiki/wiki/Spaceport"},
     {"name": "The Blue Gate", "link": "https://arcraiders.wiki/wiki/The_Blue_Gate"},
-    {"name": "Stella Montis", "link": "https://arcraiders.wiki/wiki/Stella_Montis"}
+    {"name": "Stella Montis", "link": "https://arcraiders.wiki/wiki/Stella_Montis"},
+    {"name": "Riven Tides", "link": "https://arcraiders.wiki/wiki/Riven_Tides"},
+    {"name": "Pendola Pass", "link": "https://arcraiders.wiki/wiki/Pendola_Pass"}
   ],
   "Weapon Class": [
     {"name": "Assault Rifle", "link": "https://arcraiders.wiki/wiki/Weapons"},

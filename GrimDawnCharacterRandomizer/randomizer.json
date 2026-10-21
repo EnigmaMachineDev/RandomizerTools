@@ -143,6 +143,42 @@
     {
       "className": "Oppressor",
       "masteries": ["Oathkeeper", "Necromancer"]
+    },
+    {
+      "className": "Thane",
+      "masteries": ["Berserker", "Soldier"]
+    },
+    {
+      "className": "Primalist",
+      "masteries": ["Berserker", "Shaman"]
+    },
+    {
+      "className": "Evoker",
+      "masteries": ["Berserker", "Arcanist"]
+    },
+    {
+      "className": "Reaver",
+      "masteries": ["Berserker", "Nightblade"]
+    },
+    {
+      "className": "Mystic",
+      "masteries": ["Berserker", "Occultist"]
+    },
+    {
+      "className": "Dreadnaught",
+      "masteries": ["Berserker", "Demolitionist"]
+    },
+    {
+      "className": "Runekeeper",
+      "masteries": ["Berserker", "Inquisitor"]
+    },
+    {
+      "className": "Veilwalker",
+      "masteries": ["Berserker", "Necromancer"]
+    },
+    {
+      "className": "Zealot",
+      "masteries": ["Berserker", "Oathkeeper"]
     }
   ],
   "abilities": [
@@ -2114,6 +2150,202 @@
         },
         {
           "name": "Ascension",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Pistol and Shield",
+            "Pistol and Offhand",
+            "Dual Pistols",
+            "Rifle",
+            "Crossbow",
+            "Shotgun",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        }
+      ]
+    },
+    {
+      "masteryName": "Berserker",
+      "abilityList": [
+        {
+          "name": "Onslaught",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        },
+        {
+          "name": "Leap",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        },
+        {
+          "name": "Winds of Asterkarn",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Pistol and Shield",
+            "Pistol and Offhand",
+            "Dual Pistols",
+            "Rifle",
+            "Crossbow",
+            "Shotgun",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        },
+        {
+          "name": "Rallying Cry",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Pistol and Shield",
+            "Pistol and Offhand",
+            "Dual Pistols",
+            "Rifle",
+            "Crossbow",
+            "Shotgun",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        },
+        {
+          "name": "Bonechilling Cry",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Pistol and Shield",
+            "Pistol and Offhand",
+            "Dual Pistols",
+            "Rifle",
+            "Crossbow",
+            "Shotgun",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        },
+        {
+          "name": "Werewolf",
+          "compatibleWeapons": [
+            "Two Handed Axe",
+            "Two Handed Sword",
+            "Two Handed Mace",
+            "Sword and Shield",
+            "Mace and Shield",
+            "Axe and Shield",
+            "Sword and Offhand",
+            "Axe and Offhand",
+            "Mace and Offhand",
+            "Dual Swords",
+            "Dual Axes",
+            "Dual Maces",
+            "Scepter and Offhand",
+            "Pistol and Shield",
+            "Pistol and Offhand",
+            "Dual Pistols",
+            "Rifle",
+            "Crossbow",
+            "Shotgun",
+            "Scepter and Shield",
+            "Dual Scepters",
+            "Dagger and Shield",
+            "Dual Daggers",
+            "Dagger and Offhand"
+          ]
+        },
+        {
+          "name": "Wereraven",
           "compatibleWeapons": [
             "Two Handed Axe",
             "Two Handed Sword",
