@@ -3,7 +3,7 @@
 
 /* Additional custom styles for Date Idea Randomizer options page */
 body {
-    background-color: #0a0f0a;
-    color: #c8e6c8;
+    background-color: var(--rt-bg);
+    color: var(--rt-text);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }

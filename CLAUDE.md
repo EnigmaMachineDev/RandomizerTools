@@ -24,8 +24,20 @@ Static website hosted at RandomizerTools.net — a hub of vanilla HTML/CSS/JS ra
    ├── options.css       # Options styles (or just link templates/options.css)
    └── options.js        # Options behavior (reads/writes localStorage)
    ```
-3. Add a card for it in the root `index.html`
-4. Add it to `templates/nav.html` (and `templates/navigation.html` if that is still in use) so the shared nav includes it
+3. In **both** `index.html` and `options.html`, link the theme before the page's own stylesheet (`templates/options-clean.html` already does):
+   ```html
+   <link rel="stylesheet" href="../templates/theme.css">
+   <script src="../templates/theme.js"></script>
+   ```
+   and take every color in `style.css` / `options.css` from the `--rt-*` variables — never a literal palette hex (see "Theme" below).
+4. Add a card for it in the root `index.html`
+5. Add it to `templates/nav.html` (and `templates/navigation.html` if that is still in use) so the shared nav includes it
+
+## Theme (light / dark)
+
+`templates/theme.css` defines the shared green palette as `--rt-*` variables: `:root` is light (the suite's daylight green, matched to Roadwrench), `:root[data-theme="dark"]` the original dark green, with a `prefers-color-scheme` fallback when JavaScript is off. `templates/theme.js` — a plain blocking `<script>` in every page's `<head>`, so it runs before first paint — resolves the preference (`system` default, `light`, `dark`, in `localStorage['theme']`), follows OS changes, and sets `<html data-theme>`. The sidebar's **Theme** button (`templates/nav.html`, wired in `nav-script.js`) cycles Match system → Light → Dark; pages without the sidebar (options pages) simply follow the saved choice.
+
+Every stylesheet reads its colors from the variables. Pick by role, not by hex: `--rt-bg` / `--rt-card` / `--rt-panel` / `--rt-hover` for fills, `--rt-border` and the `-line` variants for borders, `--rt-text` / `--rt-muted` / `--rt-green` / `--rt-bright` for text, `--rt-bg-ink` for text on a green button, `--rt-shadow` / `--rt-shadow-soft` in `box-shadow`. The `-ink` and `-line` variants exist because the dark palette reused its darkest greens as button text and hairline borders, which need their own values in light mode.
 
 ## randomizer.json Structure
 
@@ -73,5 +85,6 @@ Static website hosted at RandomizerTools.net — a hub of vanilla HTML/CSS/JS ra
 - Wrap all JS in `document.addEventListener('DOMContentLoaded', () => { ... })`
 - Data in `randomizer.json`; fetch it with `fetch().then(res => res.json())`
 - Responsive layout via CSS `@media` queries, not JavaScript
+- Colors come from the `--rt-*` theme variables in `templates/theme.css`, never literal palette hexes
 
 These rules exist to keep the codebase maintainable across dozens of standalone tools — no exceptions.

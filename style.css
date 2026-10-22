@@ -8,19 +8,19 @@
 
 :root {
     /* Modern dark-green palette (shared across sibling apps) */
-    --bg-darker: #0a0f0a;
-    --bg-dark: #0f1a0f;
-    --card-bg: #142014;
-    --panel-bg: #0f1a0f;
-    --border: #1e3a1e;
-    --hover: #1a2e1a;
-    --accent: #2d5a2d;
-    --primary-green: #4a8c4a;
-    --dark-green: #2d5a2d;
-    --bright-green: #6abf6a;
-    --text-light: #c8e6c8;
-    --text-bright: #c8e6c8;
-    --text-muted: #7a9f7a;
+    --bg-darker: var(--rt-bg);
+    --bg-dark: var(--rt-panel);
+    --card-bg: var(--rt-card);
+    --panel-bg: var(--rt-panel);
+    --border: var(--rt-border);
+    --hover: var(--rt-hover);
+    --accent: var(--rt-accent);
+    --primary-green: var(--rt-green);
+    --dark-green: var(--rt-accent);
+    --bright-green: var(--rt-bright);
+    --text-light: var(--rt-text);
+    --text-bright: var(--rt-text);
+    --text-muted: var(--rt-muted);
     --shadow-glow: rgba(74, 140, 74, 0.25);
 }
 
@@ -97,6 +97,26 @@ body.sidebar-open .sidebar-toggle {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
+}
+
+.theme-toggle {
+    width: 100%;
+    margin-bottom: 15px;
+    background: transparent;
+    color: var(--rt-muted);
+    border: 1px solid var(--rt-border);
+    padding: 8px 10px;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    color: var(--rt-green);
+    border-color: var(--rt-green);
 }
 
 .nav-category {

@@ -1,0 +1,75 @@
+/*
+ * RandomizerTools theme — the shared green palette in light and dark.
+ *
+ * Every page links this before its own stylesheet, and every stylesheet reads
+ * its colors from these variables (never a literal palette hex). :root is the
+ * light theme (the suite's daylight green, matched to Roadwrench); the
+ * original dark green applies under [data-theme="dark"], which theme.js sets
+ * before first paint from the saved preference or the system setting. Without
+ * JavaScript, the media query below still follows the system.
+ *
+ * The -ink and -line variants exist because the dark palette reused its
+ * darkest greens as text on green buttons and as hairline borders; in the
+ * light theme those roles need their own values.
+ */
+:root {
+  color-scheme: light;
+  --rt-bg:         #f4f8f3; /* Page background; inset panels inside cards */
+  --rt-bg-ink:     #ffffff; /* Text on green buttons and badges */
+  --rt-bg-line:    #dfe9dc; /* Borders drawn in the page color */
+  --rt-panel:      #ffffff; /* Sidebar and header panels */
+  --rt-card:       #ffffff; /* Cards and containers */
+  --rt-card-line:  #dfe9dc; /* Subtle dividers inside cards */
+  --rt-hover:      #e1ecdf; /* Hover fills, inputs */
+  --rt-hover-line: #cfdecb; /* Input borders */
+  --rt-border:     #cfdecb; /* Borders and dividers */
+  --rt-accent:     #4a8a46; /* Strong accent fills */
+  --rt-green:      #3d7d3d; /* Primary green: buttons, links, headings */
+  --rt-bright:     #2a7a2a; /* Highlighted text, hover green */
+  --rt-muted:      #587458; /* Secondary text */
+  --rt-text:       #142414; /* Body text */
+  --rt-shadow:      rgba(20, 36, 20, 0.14); /* Card and button shadows */
+  --rt-shadow-soft: rgba(20, 36, 20, 0.08);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --rt-bg:         #0a0f0a;
+  --rt-bg-ink:     #0a0f0a;
+  --rt-bg-line:    #0a0f0a;
+  --rt-panel:      #0f1a0f;
+  --rt-card:       #142014;
+  --rt-card-line:  #142014;
+  --rt-hover:      #1a2e1a;
+  --rt-hover-line: #1a2e1a;
+  --rt-border:     #1e3a1e;
+  --rt-accent:     #2d5a2d;
+  --rt-green:      #4a8c4a;
+  --rt-bright:     #6abf6a;
+  --rt-muted:      #7a9f7a;
+  --rt-text:       #c8e6c8;
+  --rt-shadow:      rgba(0, 0, 0, 0.5);
+  --rt-shadow-soft: rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --rt-bg:         #0a0f0a;
+    --rt-bg-ink:     #0a0f0a;
+    --rt-bg-line:    #0a0f0a;
+    --rt-panel:      #0f1a0f;
+    --rt-card:       #142014;
+    --rt-card-line:  #142014;
+    --rt-hover:      #1a2e1a;
+    --rt-hover-line: #1a2e1a;
+    --rt-border:     #1e3a1e;
+    --rt-accent:     #2d5a2d;
+    --rt-green:      #4a8c4a;
+    --rt-bright:     #6abf6a;
+    --rt-muted:      #7a9f7a;
+    --rt-text:       #c8e6c8;
+    --rt-shadow:      rgba(0, 0, 0, 0.5);
+    --rt-shadow-soft: rgba(0, 0, 0, 0.3);
+  }
+}

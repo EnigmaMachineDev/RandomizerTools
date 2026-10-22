@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 body {
-    background-color: #0a0f0a;
-    color: #c8e6c8;
+    background-color: var(--rt-bg);
+    color: var(--rt-text);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ body.sidebar-closed {
 }
 
 .back-button {
-    color: #4a8c4a;
+    color: var(--rt-green);
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -37,10 +37,10 @@ body.sidebar-closed {
 }
 
 .container {
-    background-color: #142014;
+    background-color: var(--rt-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px var(--rt-shadow);
     text-align: center;
     max-width: 700px;
     width: 90%;
@@ -58,9 +58,9 @@ h1 {
 }
 
 .mode-btn {
-    background-color: #1e3a1e;
-    color: #4a8c4a;
-    border: 1px solid #4a8c4a;
+    background-color: var(--rt-border);
+    color: var(--rt-green);
+    border: 1px solid var(--rt-green);
     padding: 0.6rem 1.2rem;
     border-radius: 5px;
     cursor: pointer;
@@ -70,12 +70,12 @@ h1 {
 }
 
 .mode-btn:hover {
-    background-color: #1a2e1a;
+    background-color: var(--rt-hover);
 }
 
 .mode-btn.active {
-    background-color: #4a8c4a;
-    color: #0a0f0a;
+    background-color: var(--rt-green);
+    color: var(--rt-bg-ink);
     font-weight: bold;
 }
 
@@ -98,9 +98,9 @@ h1 {
 .input-group input[type="number"] {
     width: 100%;
     padding: 0.5rem;
-    background-color: #0a0f0a;
-    color: #4a8c4a;
-    border: 1px solid #4a8c4a;
+    background-color: var(--rt-bg);
+    color: var(--rt-green);
+    border: 1px solid var(--rt-green);
     border-radius: 5px;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
@@ -109,12 +109,12 @@ h1 {
 .input-group input[type="time"]:focus,
 .input-group input[type="number"]:focus {
     outline: none;
-    border-color: #6abf6a;
+    border-color: var(--rt-bright);
 }
 
 .generate-btn {
-    background-color: #4a8c4a;
-    color: #0a0f0a;
+    background-color: var(--rt-green);
+    color: var(--rt-bg-ink);
     border: none;
     padding: 12px 24px;
     border-radius: 5px;
@@ -127,7 +127,7 @@ h1 {
 }
 
 .generate-btn:hover {
-    background-color: #6abf6a;
+    background-color: var(--rt-bright);
 }
 
 .schedule-output {
@@ -142,8 +142,8 @@ h1 {
 }
 
 .cycle-card {
-    background-color: #0f1a0f;
-    border: 2px solid #1e3a1e;
+    background-color: var(--rt-panel);
+    border: 2px solid var(--rt-border);
     border-radius: 8px;
     padding: 1rem 1.25rem;
     display: flex;
@@ -154,16 +154,16 @@ h1 {
 }
 
 .cycle-card:hover {
-    border-color: #4a8c4a;
+    border-color: var(--rt-green);
 }
 
 .cycle-card.recommended {
-    border-color: #4a8c4a;
-    background-color: #142014;
+    border-color: var(--rt-green);
+    background-color: var(--rt-card);
 }
 
 .cycle-card.recommended .cycle-time {
-    color: #6abf6a;
+    color: var(--rt-bright);
 }
 
 .cycle-left {
@@ -174,13 +174,13 @@ h1 {
 
 .cycle-label {
     font-size: 0.85em;
-    color: #7a9f7a;
+    color: var(--rt-muted);
 }
 
 .cycle-time {
     font-size: 1.6em;
     font-weight: bold;
-    color: #4a8c4a;
+    color: var(--rt-green);
     letter-spacing: 1px;
 }
 
@@ -194,18 +194,18 @@ h1 {
 .cycle-count {
     font-size: 1em;
     font-weight: bold;
-    color: #6abf6a;
+    color: var(--rt-bright);
 }
 
 .cycle-duration {
     font-size: 0.85em;
-    color: #7a9f7a;
+    color: var(--rt-muted);
 }
 
 .cycle-badge {
     font-size: 0.75em;
-    background-color: #4a8c4a;
-    color: #0a0f0a;
+    background-color: var(--rt-green);
+    color: var(--rt-bg-ink);
     padding: 0.15rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
@@ -213,16 +213,16 @@ h1 {
 }
 
 .results-header {
-    background-color: #1e3a1e;
+    background-color: var(--rt-border);
     padding: 0.75rem 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
     font-size: 0.9em;
-    color: #7a9f7a;
+    color: var(--rt-muted);
 }
 
 .results-header span {
-    color: #6abf6a;
+    color: var(--rt-bright);
     font-weight: bold;
 }
 
@@ -236,13 +236,13 @@ h1 {
 }
 
 a {
-    color: #4a8c4a;
+    color: var(--rt-green);
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #6abf6a;
+    color: var(--rt-bright);
     text-decoration: underline;
 }
 
@@ -259,7 +259,7 @@ a:hover {
 .about-content h3 {
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #6abf6a;
+    color: var(--rt-bright);
 }
 
 .about-section {
@@ -287,10 +287,10 @@ a:hover {
 .main-container {
     max-width: 700px;
     width: 90%;
-    background-color: #142014;
+    background-color: var(--rt-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px var(--rt-shadow);
 }
 
 .category-title {
