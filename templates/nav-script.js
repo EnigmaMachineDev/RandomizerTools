@@ -72,6 +72,26 @@
         }, 250);
     });
 
+    // Theme toggle: match system → light → dark. The state lives in
+    // templates/theme.js (window.siteTheme), loaded in every page's <head>.
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle && window.siteTheme) {
+        const order = ['system', 'light', 'dark'];
+        const labels = { system: 'Match system', light: 'Light', dark: 'Dark' };
+        const render = (pref) => {
+            const next = order[(order.indexOf(pref) + 1) % order.length];
+            themeToggle.textContent = 'Theme: ' + labels[pref];
+            themeToggle.title = 'Switch to ' + labels[next].toLowerCase();
+            themeToggle.setAttribute('aria-label', 'Theme: ' + labels[pref] + '. Switch to ' + labels[next].toLowerCase() + '.');
+        };
+        themeToggle.addEventListener('click', () => {
+            const pref = window.siteTheme.get();
+            window.siteTheme.set(order[(order.indexOf(pref) + 1) % order.length]);
+        });
+        window.siteTheme.subscribe(render);
+        render(window.siteTheme.get());
+    }
+
     // Initialize on page load
     initializeSidebar();
 })();

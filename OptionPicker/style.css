@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 body {
-    background-color: #0a0f0a;
-    color: #c8e6c8;
+    background-color: var(--rt-bg);
+    color: var(--rt-text);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ body.sidebar-closed {
 
 
 .back-button {
-    color: #4a8c4a;
+    color: var(--rt-green);
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -38,10 +38,10 @@ body.sidebar-closed {
 }
 
 .container {
-    background-color: #142014;
+    background-color: var(--rt-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px var(--rt-shadow);
     text-align: center;
     max-width: 600px;
     width: 90%;
@@ -49,12 +49,12 @@ body.sidebar-closed {
 
 h1 {
     margin-bottom: 2rem;
-    color: #4a8c4a;
+    color: var(--rt-green);
 }
 
 h2 {
     margin-bottom: 1rem;
-    color: #4a8c4a;
+    color: var(--rt-green);
 }
 
 .section {
@@ -69,9 +69,9 @@ h2 {
 
 #option-input {
     flex: 1;
-    background-color: #0a0f0a;
-    color: #4a8c4a;
-    border: 1px solid #4a8c4a;
+    background-color: var(--rt-bg);
+    color: var(--rt-green);
+    border: 1px solid var(--rt-green);
     padding: 0.5rem;
     border-radius: 5px;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -80,13 +80,13 @@ h2 {
 
 #option-input:focus {
     outline: none;
-    border-color: #6abf6a;
+    border-color: var(--rt-bright);
     box-shadow: 0 0 5px rgba(102, 204, 102, 0.5);
 }
 
 .add-btn {
-    background-color: #4a8c4a;
-    color: #0a0f0a;
+    background-color: var(--rt-green);
+    color: var(--rt-bg-ink);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -96,7 +96,7 @@ h2 {
 }
 
 .add-btn:hover {
-    background-color: #6abf6a;
+    background-color: var(--rt-bright);
 }
 
 .options-list {
@@ -107,8 +107,8 @@ h2 {
 }
 
 .option-item {
-    background-color: #0a0f0a;
-    border: 1px solid #1e3a1e;
+    background-color: var(--rt-bg);
+    border: 1px solid var(--rt-border);
     padding: 0.75rem;
     margin-bottom: 0.5rem;
     border-radius: 5px;
@@ -124,7 +124,7 @@ h2 {
 
 .remove-btn {
     background-color: #e57373;
-    color: #0a0f0a;
+    color: var(--rt-bg-ink);
     border: none;
     width: 30px;
     height: 30px;
@@ -144,8 +144,8 @@ h2 {
 }
 
 .generate-btn {
-    background-color: #4a8c4a;
-    color: #0a0f0a;
+    background-color: var(--rt-green);
+    color: var(--rt-bg-ink);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -157,12 +157,12 @@ h2 {
 }
 
 .generate-btn:hover {
-    background-color: #6abf6a;
+    background-color: var(--rt-bright);
 }
 
 .clear-btn {
     background-color: #e57373;
-    color: #0a0f0a;
+    color: var(--rt-bg-ink);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -187,18 +187,18 @@ h2 {
 .result-text {
     font-size: 2em;
     font-weight: bold;
-    color: #4a8c4a;
+    color: var(--rt-green);
     word-break: break-word;
 }
 
 a {
-    color: #4a8c4a;
+    color: var(--rt-green);
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #6abf6a;
+    color: var(--rt-bright);
     text-decoration: underline;
 }
 

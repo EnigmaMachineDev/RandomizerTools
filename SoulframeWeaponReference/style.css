@@ -7,13 +7,13 @@
 }
 
 :root {
-    --primary-green: #4a8c4a;
-    --dark-green: #2d5a2d;
-    --bg-dark: #0a0f0a;
-    --bg-darker: #0a0f0a;
-    --card-bg: #0f1a0f;
-    --text-light: #c8e6c8;
-    --text-bright: #c8e6c8;
+    --primary-green: var(--rt-green);
+    --dark-green: var(--rt-accent);
+    --bg-dark: var(--rt-bg);
+    --bg-darker: var(--rt-bg);
+    --card-bg: var(--rt-panel);
+    --text-light: var(--rt-text);
+    --text-bright: var(--rt-text);
     --shadow-glow: rgba(74, 140, 74, 0.2);
 }
 
@@ -51,7 +51,7 @@ body.sidebar-closed {
     background: var(--card-bg);
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px var(--rt-shadow);
 }
 
 h1 {
@@ -156,7 +156,7 @@ h1 {
     overflow-x: auto;
     margin-bottom: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 20px var(--rt-shadow-soft);
 }
 
 table {
@@ -226,7 +226,7 @@ td {
 
 /* Rarity Colors */
 .rarity-common {
-    color: #7a9f7a;
+    color: var(--rt-muted);
 }
 
 .rarity-uncommon {
@@ -266,7 +266,7 @@ td {
     border-radius: 15px;
     width: 80%;
     max-width: 800px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--shadow-glow);
+    box-shadow: 0 10px 40px var(--rt-shadow), 0 0 30px var(--shadow-glow);
     animation: modalFadeIn 0.3s;
 }
 
@@ -362,7 +362,7 @@ td {
     padding: 30px;
     margin: 20px auto;
     max-width: 1400px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px var(--rt-shadow);
     border: 1px solid rgba(74, 140, 74, 0.2);
 }
 

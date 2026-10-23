@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 body {
-    background-color: #0a0f0a;
-    color: #c8e6c8;
+    background-color: var(--rt-bg);
+    color: var(--rt-text);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ body.sidebar-closed {
 }
 
 .back-button {
-    color: #4a8c4a;
+    color: var(--rt-green);
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -37,10 +37,10 @@ body.sidebar-closed {
 }
 
 .container {
-    background-color: #142014;
+    background-color: var(--rt-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px var(--rt-shadow);
     text-align: center;
     max-width: 800px;
     width: 90%;
@@ -70,9 +70,9 @@ h1 {
 .input-group select {
     width: 100%;
     padding: 0.5rem;
-    background-color: #0a0f0a;
-    color: #4a8c4a;
-    border: 1px solid #4a8c4a;
+    background-color: var(--rt-bg);
+    color: var(--rt-green);
+    border: 1px solid var(--rt-green);
     border-radius: 5px;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
@@ -82,7 +82,7 @@ h1 {
 .input-group input[type="time"]:focus,
 .input-group select:focus {
     outline: none;
-    border-color: #6abf6a;
+    border-color: var(--rt-bright);
 }
 
 #awake-times-container {
@@ -107,9 +107,9 @@ h1 {
 .awake-time-end {
     flex: 1;
     padding: 0.5rem;
-    background-color: #0a0f0a;
-    color: #4a8c4a;
-    border: 1px solid #4a8c4a;
+    background-color: var(--rt-bg);
+    color: var(--rt-green);
+    border: 1px solid var(--rt-green);
     border-radius: 5px;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     font-size: 1em;
@@ -118,17 +118,17 @@ h1 {
 .awake-time-start:focus,
 .awake-time-end:focus {
     outline: none;
-    border-color: #6abf6a;
+    border-color: var(--rt-bright);
 }
 
 .time-separator {
-    color: #7a9f7a;
+    color: var(--rt-muted);
     font-size: 0.9em;
 }
 
 .remove-time-btn {
     background-color: #e57373;
-    color: #c8e6c8;
+    color: var(--rt-text);
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -146,15 +146,15 @@ h1 {
 }
 
 .remove-time-btn:disabled {
-    background-color: #1a2e1a;
+    background-color: var(--rt-hover);
     cursor: not-allowed;
     opacity: 0.5;
 }
 
 .add-time-btn {
-    background-color: #1e3a1e;
-    color: #4a8c4a;
-    border: 1px solid #4a8c4a;
+    background-color: var(--rt-border);
+    color: var(--rt-green);
+    border: 1px solid var(--rt-green);
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
@@ -164,12 +164,12 @@ h1 {
 }
 
 .add-time-btn:hover {
-    background-color: #1a2e1a;
+    background-color: var(--rt-hover);
 }
 
 .generate-btn {
-    background-color: #4a8c4a;
-    color: #0a0f0a;
+    background-color: var(--rt-green);
+    color: var(--rt-bg-ink);
     border: none;
     padding: 12px 24px;
     border-radius: 5px;
@@ -181,7 +181,7 @@ h1 {
 }
 
 .generate-btn:hover {
-    background-color: #6abf6a;
+    background-color: var(--rt-bright);
 }
 
 .schedule-output {
@@ -200,26 +200,26 @@ h1 {
 }
 
 .schedule-option {
-    background-color: #0f1a0f;
-    border: 2px solid #1e3a1e;
+    background-color: var(--rt-panel);
+    border: 2px solid var(--rt-border);
     border-radius: 8px;
     padding: 1.5rem;
     transition: border-color 0.3s ease;
 }
 
 .schedule-option:hover {
-    border-color: #4a8c4a;
+    border-color: var(--rt-green);
 }
 
 .option-number {
-    color: #6abf6a;
+    color: var(--rt-bright);
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 .schedule-header {
-    background-color: #1e3a1e;
+    background-color: var(--rt-border);
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -227,17 +227,17 @@ h1 {
 
 .schedule-header h2 {
     margin: 0 0 0.5rem 0;
-    color: #6abf6a;
+    color: var(--rt-bright);
 }
 
 .schedule-info {
     font-size: 0.9em;
-    color: #7a9f7a;
+    color: var(--rt-muted);
 }
 
 .sleep-period {
-    background-color: #0f1a0f;
-    border-left: 4px solid #4a8c4a;
+    background-color: var(--rt-panel);
+    border-left: 4px solid var(--rt-green);
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -245,7 +245,7 @@ h1 {
 
 .sleep-period h3 {
     margin: 0 0 0.5rem 0;
-    color: #4a8c4a;
+    color: var(--rt-green);
 }
 
 .sleep-period-details {
@@ -262,12 +262,12 @@ h1 {
 
 .detail-label {
     font-size: 0.85em;
-    color: #7a9f7a;
+    color: var(--rt-muted);
 }
 
 .detail-value {
     font-size: 1.1em;
-    color: #6abf6a;
+    color: var(--rt-bright);
     font-weight: bold;
 }
 
@@ -290,13 +290,13 @@ h1 {
 }
 
 a {
-    color: #4a8c4a;
+    color: var(--rt-green);
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #6abf6a;
+    color: var(--rt-bright);
     text-decoration: underline;
 }
 
@@ -313,7 +313,7 @@ a:hover {
 .about-content h3 {
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #6abf6a;
+    color: var(--rt-bright);
 }
 
 .about-section {
@@ -341,10 +341,10 @@ a:hover {
 .main-container {
     max-width: 800px;
     width: 90%;
-    background-color: #142014;
+    background-color: var(--rt-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px var(--rt-shadow);
 }
 
 .category-title {
