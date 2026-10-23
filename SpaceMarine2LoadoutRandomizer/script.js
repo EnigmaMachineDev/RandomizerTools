@@ -40,6 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
         element.textContent = item;
     }
 
+    // Some melee weapons (e.g. Tactical's One-Handed Thunder Hammer) take the primary slot
+    function blocksPrimary(classData, melee) {
+        return (classData.meleeWithoutPrimary || []).includes(melee);
+    }
+
+    function rollPrimary() {
+        const classData = data.classes[currentClass];
+        if (blocksPrimary(classData, meleeEl.textContent)) {
+            setItem(primaryEl, 'N/A');
+            return;
+        }
+        const enabledPrimaries = getEnabledWeapons('allPrimaries');
+        const availablePrimaries = classData.primaries.filter(w => enabledPrimaries.includes(w));
+        setItem(primaryEl, getRandomItem(availablePrimaries) || 'N/A');
+    }
+
     function rollChapter() {
         const enabledChapters = getEnabledItems('chapters');
         if (enabledChapters.length === 0) {
@@ -76,21 +92,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const classData = data.classes[currentClass];
         
         // Filter weapons by both class compatibility AND user options
-        const enabledPrimaries = getEnabledWeapons('allPrimaries');
         const enabledSecondaries = getEnabledWeapons('allSecondaries');
         const enabledMelee = getEnabledWeapons('allMelee');
-        
-        const availablePrimaries = classData.primaries.filter(w => enabledPrimaries.includes(w));
+
         const availableSecondaries = classData.secondaries.filter(w => enabledSecondaries.includes(w));
         const availableMelee = classData.melee.filter(w => enabledMelee.includes(w));
-        
-        const primary = getRandomItem(availablePrimaries) || 'N/A';
+
         const secondary = getRandomItem(availableSecondaries) || 'N/A';
         const melee = getRandomItem(availableMelee) || 'N/A';
 
-        setItem(primaryEl, primary);
         setItem(secondaryEl, secondary);
         setItem(meleeEl, melee);
+        rollPrimary();
     }
 
     function rollMission() {
@@ -108,10 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rerollClassBtn.addEventListener('click', rollClass);
     rerollPrimaryBtn.addEventListener('click', () => {
         if (!currentClass || !data.classes[currentClass]) return;
-        const enabledPrimaries = getEnabledWeapons('allPrimaries');
-        const availablePrimaries = data.classes[currentClass].primaries.filter(w => enabledPrimaries.includes(w));
-        const primary = getRandomItem(availablePrimaries) || 'N/A';
-        setItem(primaryEl, primary);
+        rollPrimary();
     });
     rerollSecondaryBtn.addEventListener('click', () => {
         if (!currentClass || !data.classes[currentClass]) return;
@@ -124,8 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!currentClass || !data.classes[currentClass]) return;
         const enabledMelee = getEnabledWeapons('allMelee');
         const availableMelee = data.classes[currentClass].melee.filter(w => enabledMelee.includes(w));
+        const classData = data.classes[currentClass];
+        const hadBlockedPrimary = blocksPrimary(classData, meleeEl.textContent);
         const melee = getRandomItem(availableMelee) || 'N/A';
         setItem(meleeEl, melee);
+        // Swapping onto or off a primary-blocking melee changes whether a primary is carried
+        if (blocksPrimary(classData, melee) || hadBlockedPrimary) rollPrimary();
     });
     rerollMissionBtn.addEventListener('click', rollMission);
     generateLoadoutBtn.addEventListener('click', randomizeAll);

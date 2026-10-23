@@ -29,6 +29,9 @@
         "Chainsword",
         "Combat Knife",
         "Thunder Hammer One-Handed"
+      ],
+      "meleeWithoutPrimary": [
+        "Thunder Hammer One-Handed"
       ]
     },
     "Assault": {
